@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Roaster 🔥</title>
+  <meta name="description" content="Get your Spotify music taste roasted. Login with Spotify and prepare to be judged." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- Login Screen -->
+    <section id="login-screen" class="screen active">
+      <div class="login-container">
+        <div class="logo">
+          <svg viewBox="0 0 24 24" width="64" height="64" fill="#1DB954">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.061 20.04 8.761c.6.36.78 1.02.42 1.56-.36.48-1.08.66-1.56.36z"/>
+          </svg>
+          <h1>Spotify Roaster</h1>
+          <p class="tagline">Prepare to be judged</p>
+        </div>
+
+        <button id="login-btn" onclick="window.location.href='/login'">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381C8.64 5.801 15.6 6.061 20.04 8.761c.6.36.78 1.02.42 1.56-.36.48-1.08.66-1.56.36z"/>
+          </svg>
+          Login with Spotify
+        </button>
+
+        <p class="privacy-note">
+          🔒 We never store your data. Your Spotify token is used once and discarded.
+        </p>
+      </div>
+    </section>
+
+    <!-- Loading Screen -->
+    <section id="loading-screen" class="screen">
+      <div class="loading-container">
+        <div class="spinner"></div>
+        <p id="loading-text">Fetching your questionable music taste...</p>
+      </div>
+    </section>
+
+    <!-- Roast Screen -->
+    <section id="roast-screen" class="screen">
+      <div class="roast-container">
+        <div class="roast-header">
+          <img id="user-avatar" src="" alt="Profile" class="avatar" />
+          <div>
+            <h2 id="user-name">Your Name</h2>
+            <p class="roast-subtitle">Verdict: <span id="user-verdict" class="verdict-text">...</span></p>
+          </div>
+        </div>
+
+        <div id="tracks-preview" class="tracks-preview">
+          <!-- Filled by JS -->
+        </div>
+
+        <div id="roast-content" class="roast-card">
+          <!-- Roast text goes here -->
+        </div>
+
+        <div class="metrics-card">
+          <h3 class="metrics-title">🚨 Musical Rap Sheet</h3>
+          <div class="table-container">
+            <table class="metrics-table">
+              <thead>
+                <tr>
+                  <th>Metric / Offense</th>
+                  <th>Value / Severity</th>
+                  <th>Reasoning</th>
+                </tr>
+              </thead>
+              <tbody id="metrics-table-body">
+                <!-- Filled by JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="roast-actions">
+          <button id="re-roast-btn" class="btn-secondary">🔥 Roast Me Again</button>
+          <button id="logout-btn" class="btn-ghost" onclick="logout()">Logout</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Error Screen -->
+    <section id="error-screen" class="screen">
+      <div class="error-container">
+        <h2>😬 Something went wrong</h2>
+        <p id="error-message">An error occurred.</p>
+        <button onclick="window.location.href='/'">Try Again</button>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
